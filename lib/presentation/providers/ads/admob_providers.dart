@@ -1,12 +1,15 @@
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:miscelaneos/config/plugins/admob_plugin.dart';
+import 'package:miscelaneos/presentation/providers/ads/show_ads_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'admob_providers.g.dart';
 
 @riverpod
 Future<BannerAd> adBanner(AdBannerRef ref) async {
-  // TODO: validate if the adds will be loaded
+  final showAds = ref.watch(showAdsProvider);
+
+  if (!showAds) throw 'Ads are disabled';
 
   final ad = await AdmobPlugin.loadBannerAd();
   return ad;
@@ -14,7 +17,9 @@ Future<BannerAd> adBanner(AdBannerRef ref) async {
 
 @riverpod
 Future<InterstitialAd> adInterstitial(AdInterstitialRef ref) async {
-  // TODO: validate if the adds will be loaded
+  final showAds = ref.watch(showAdsProvider);
+
+  if (!showAds) throw 'Ads are disabled';
 
   final ad = await AdmobPlugin.loadIntertitialAd();
   return ad;
@@ -22,7 +27,9 @@ Future<InterstitialAd> adInterstitial(AdInterstitialRef ref) async {
 
 @riverpod
 Future<RewardedAd> adRewarded(AdRewardedRef ref) async {
-  // TODO: validate if the adds will be loaded
+  final showAds = ref.watch(showAdsProvider);
+
+  if (!showAds) throw 'Ads are disabled';
 
   final ad = await AdmobPlugin.loadRewardedAd();
   return ad;

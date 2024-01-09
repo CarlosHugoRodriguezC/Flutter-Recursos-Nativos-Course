@@ -1,3 +1,8 @@
+import 'package:isar/isar.dart';
+
+part 'pokemon.g.dart';
+
+@collection
 class Pokemon {
   const Pokemon({
     required this.id,
@@ -8,7 +13,4 @@ class Pokemon {
   final int id;
   final String name;
   final String spriteFront;
-
-
-  
 }

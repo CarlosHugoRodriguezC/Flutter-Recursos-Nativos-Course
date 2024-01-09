@@ -82,6 +82,11 @@ class MainMenu extends StatelessWidget {
       icon: Icons.fort_sharp,
       route: '/ad-rewarded',
     ),
+    MenuItem(
+      title: "Background Process",
+      icon: Icons.storage_rounded,
+      route: '/db-pokemons',
+    ),
   ];
 
   @override
